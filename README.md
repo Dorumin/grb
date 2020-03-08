@@ -38,7 +38,7 @@ await grab.post('https://example.com', {
     body: 'any payload! But there are better ways for forms and json payloads'
 });
 
-// If body is an object, it will be parsed as JSON and the Content-Type header will be set
+// If body is an object, it will be parsed as JSON and the Content-Type header will be set to application/json
 await grab.post('https://example.com', {
     body: {
         hello: 'there',
@@ -73,7 +73,7 @@ await instance('https://google.com');
 console.log('Cookies', instance.jar.toJSON());
 ```
 
-Voila! Now you should be armed to use this library to your heart's content. Everything else you should be able to figure out through IntelliSense, it's all TypeScript.
+Voila! Now you should be armed to use this library to your heart's content. Everything else you should be able to figure out through IntelliSense; it's all TypeScript. Go on and make something awesome.
 
 # FAQ
 ## Why yet another HTTP library?
@@ -83,4 +83,16 @@ Voila! Now you should be armed to use this library to your heart's content. Ever
 [![install size](https://packagephobia.now.sh/badge?p=grb)](https://packagephobia.now.sh/result?p=grb) (about one third of `got`, but 10 times bigger than `phin` or `centra` because they don't include `form-data` integration or `zlib` as an explicit dependency)
 3. Have a simple and easy to remember API, that won't change over time. No need to re-learn everything, and the less keystrokes, the better. This means that nearly everything is done with a single function call. This also means that it doesn't ship with stream support or a callback interface; it's all done with promises.
 4. Don't make awkward API decisions, like `fetch`, with their chained `Response.json()` method looking weird with async/await, or `got`'s `.json()` method that can be called on a `Promise` object directly. Sure, you can get *used* to them, but you shouldn't *have* to.
-5. I found the `grb` name was available by chance, and it honestly sounded great for a `got` successor and an http library. You want something? Just `grb` it.
+5. I found the `grb` name was available by chance, and it honestly sounded great for a `got` successor and an http library. You want something off the internet? Just `grb` it.
+
+## Callbacks?
+No.
+
+## Streams?
+Someday. Perhaps around the same time I add progress indicators. Are those often used? Do people really download and upload big files through node often, and show some indicator to the user? I don't know
+
+## Caching?
+Not yet, most Node programs often just want the freshest data there is, but perhaps if we were available for client-side code.
+
+## Cancelation?
+Yikes, I should add that eventually, `response.abort()` is fairly easy to implement, although impaling the returned `Promise` object with a `cancel` method sounds icky to me... We'll see.
