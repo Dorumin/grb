@@ -1,6 +1,6 @@
 {
   "name": "grb",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "description": "Simplest, got-inspired, HTTP client for Node",
   "main": "build/index.js",
   "scripts": {

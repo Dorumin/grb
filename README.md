@@ -53,7 +53,7 @@ const { body: message } = await grab.post('https://discordapp.com/api/v6/channel
         file: fs.createReadStream('kitten.png')
     },
     headers: {
-        authoriation: 'Discord token'
+        authorization: 'Discord token'
     },
     json: true
 });
