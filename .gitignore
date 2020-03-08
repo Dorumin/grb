@@ -1,0 +1,8 @@
+# TypeScript output
+build/
+
+# npm modules
+node_modules/
+
+# Debugging
+debug/

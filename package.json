@@ -1,0 +1,36 @@
+{
+  "name": "grb",
+  "version": "0.0.17",
+  "description": "Simplest, got-inspired, HTTP client for Node",
+  "main": "build/index.js",
+  "scripts": {
+    "debug": "tsc && node debug/index.js",
+    "pub": "tsc && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dorumin/grb.git"
+  },
+  "keywords": [
+    "http",
+    "client",
+    "got",
+    "get",
+    "request",
+    "simple"
+  ],
+  "author": "Dorumin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dorumin/grb/issues"
+  },
+  "dependencies": {
+    "form-data": "3.0.0",
+    "zlib": "1.0.5"
+  },
+  "devDependencies": {
+    "@types/node": "13.7.4",
+    "@types/tough-cookie": "2.3.6",
+    "typescript": "3.7.5"
+  }
+}
