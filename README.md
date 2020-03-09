@@ -60,6 +60,8 @@ const { body: message } = await grab.post('https://discordapp.com/api/v6/channel
 
 console.log(message);
 
+// You could also just pass a FormData instance to body!
+
 // Cookies
 // You could extract this to a file, like http.js, and require it directly from other files
 // They will all share a single CookieJar
