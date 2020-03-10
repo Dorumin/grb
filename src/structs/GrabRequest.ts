@@ -26,7 +26,7 @@ export default class GrabRequest {
         }
         else if (typeof body === 'string') updated = body;
         else if (body instanceof Buffer) updated = body.toString();
-        else if (body instanceof Stream) updated = body
+        else if (body instanceof Stream) updated = body;
         else if (body && Object.getPrototypeOf(body) === Object.prototype) {
             updated = JSON.stringify(body);
             extend(self.options.headers, {

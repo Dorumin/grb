@@ -1,6 +1,7 @@
 import http from 'http';
 import https from 'https';
 import qs from 'querystring';
+import Headers from './Headers';
 import def from '../util/def';
 import consumeStream from '../util/consumeStream';
 import { GrabRequestOptions } from '../types';
@@ -45,7 +46,8 @@ export default class GrabResponse {
     private options: GrabRequestOptions;
     private bodyType: string;
     url: string;
-    headers: Record<string, string | string[]>;
+    rawHeaders: Record<string, string | string[]>;
+    headers: Headers;
     statusCode: number;
     body: string | Buffer | Record<string, any>;
 
@@ -117,7 +119,8 @@ export default class GrabResponse {
                     return;
                 }
 
-                this.headers = res.headers;
+                def(this, 'rawHeaders', res.headers);
+                this.headers = new Headers(res.headers);
                 this.statusCode = res.statusCode;
 
                 for (const modifier of GrabResponse.afterResponse) {
