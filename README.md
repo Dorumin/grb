@@ -82,7 +82,7 @@ Voila! Now you should be armed to use this library to your heart's content. Ever
 0. Personal challenge. I wanted to make one, and so I did
 1. Have a simple library that makes the most common interactions easy. This rules out fluid interfaces; nobody wants to remember to `.send()` requests manually
 2. While not a primary objective, keep the bundle size small and competitive.
-[![install size](https://packagephobia.now.sh/badge?p=grb)](https://packagephobia.now.sh/result?p=grb) (about one third of `got`, but 10 times bigger than `phin` or `centra` because they don't include `form-data` integration or `zlib` as an explicit dependency)
+[![install size](https://packagephobia.now.sh/badge?p=grb)](https://packagephobia.now.sh/result?p=grb) (about one third of `got`, but 10 times bigger than `phin` or `centra` because they don't include `form-data` integration)
 3. Have a simple and easy to remember API, that won't change over time. No need to re-learn everything, and the less keystrokes, the better. This means that nearly everything is done with a single function call. This also means that it doesn't ship with stream support or a callback interface; it's all done with promises.
 4. Don't make awkward API decisions, like `fetch`, with their chained `Response.json()` method looking weird with async/await, or `got`'s `.json()` method that can be called on a `Promise` object directly. Sure, you can get *used* to them, but you shouldn't *have* to.
 5. I found the `grb` name was available by chance, and it honestly sounded great for a `got` successor and an http library. You want something off the internet? Just `grb` it.
