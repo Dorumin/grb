@@ -85,7 +85,15 @@ export default class GrabRequest {
         const form = new FormData();
 
         for (const key in entries) {
-            form.append(key, entries[key]);
+            const value = entries[key];
+
+            if (value instanceof Array) {
+                for (const val of value) {
+                    form.append(key, val);
+                }
+            } else {
+                form.append(key, entries[key]);
+            }
         }
 
         return form;

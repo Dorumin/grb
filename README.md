@@ -15,8 +15,10 @@ const grab = require('grb');
 
 // Basic GET
 const response = await grab('https://google.com');
-console.log('Headers', response.headers);
 console.log('HTML', response.body);
+// response.headers is a Map with case-insensitive get methods
+// .getAll returns an array with all values of a given header
+console.log('Headers', response.headers.getAll('Set-Cookie'));
 
 // Query parameters and explicit method
 // If you use the `query` field, query params in the url will be ignored

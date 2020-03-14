@@ -3,5 +3,5 @@ import defaults from './defaults';
 
 const grab = create(defaults);
 
-module.exports = grab;
-export default grab;
+export = grab;
+// export default grab;
