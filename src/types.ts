@@ -21,10 +21,10 @@ export interface GrabRequestOptions {
     maxRedirects?: number;
 }
 
-export type GrabFunction = (url: string, options: GrabRequestOptions) => GrabResponse;
+export type GrabFunction = (url: string, options: GrabRequestOptions) => Promise<GrabResponse>;
 
 export interface Grab {
-    (url: string, options: GrabRequestOptions): GrabResponse;
+    (url: string, options: GrabRequestOptions): Promise<GrabResponse>;
     get: GrabFunction;
     head: GrabFunction;
     post: GrabFunction;
