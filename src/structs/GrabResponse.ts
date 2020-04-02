@@ -45,6 +45,7 @@ export default class GrabResponse {
     private redirectCount: number;
     private options: GrabRequestOptions;
     private bodyType: string;
+	private buffer: Buffer;
     url: string;
     rawHeaders: Record<string, string | string[]>;
     headers: Headers;
@@ -127,21 +128,21 @@ export default class GrabResponse {
                     await modifier.call(GrabResponse, this);
                 }
 
-                const buffer = await consumeStream(res);
+                this.buffer = await consumeStream(res);
 
                 switch (this.bodyType) {
                     case 'buffer':
-                        this.body = buffer;
+                        this.body = this.buffer;
                         break;
                     case 'json':
                         try {
-                            this.body = JSON.parse(buffer.toString());
+                            this.body = JSON.parse(this.buffer.toString());
                         } catch(e) {
                             reject(new Error('Invalid JSON'));
                         }
                         break;
                     case 'utf8':
-                        this.body = buffer.toString();
+                        this.body = this.buffer.toString();
                         break;
                 }
 
@@ -150,6 +151,10 @@ export default class GrabResponse {
 
             request.on('error', err => reject(err));
         });
+    }
+
+    json() {
+        return JSON.parse(this.buffer.toString());
     }
 
     wait() {

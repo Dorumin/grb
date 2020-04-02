@@ -58,7 +58,7 @@ export default class GrabRequest {
             } else {
                 resolve(Buffer.byteLength(String(object)).toString());
             }
-        })
+        });
     }
 
     static async setCookies(self: GrabRequest) {
@@ -97,19 +97,6 @@ export default class GrabRequest {
         }
 
         return form;
-    }
-
-    static awaitForm(form: FormData) {
-        return new Promise((resolve, reject) => {
-            form.getLength((err, len) => {
-                if (err) {
-                    reject(err);
-                    return;
-                }
-
-                resolve();
-            })
-        })
     }
 
     private options: GrabRequestOptions;
