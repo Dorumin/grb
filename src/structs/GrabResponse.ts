@@ -66,12 +66,7 @@ export default class GrabResponse {
         const url = new URL(this.url);
 
         if (this.options.query) {
-            // Collect first with Array.from because modifying under iteration breaks shit
-            for (const key of Array.from(url.searchParams.keys())) {
-                url.searchParams.delete(key);
-            }
-
-            url.pathname += '?' + qs.stringify(this.options.query);
+            url.search = qs.stringify(this.options.query);
         }
 
         const fetch = url.protocol === 'https:' ? https.request : http.request;
